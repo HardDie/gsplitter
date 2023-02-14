@@ -84,7 +84,9 @@ func SplitByExt(files []string) {
 		// Create folder
 		err := os.Mkdir(folderName, 0755)
 		if err != nil {
-			log.Fatalf("error create folder %q: %s\n", folderName, err.Error())
+			if !os.IsExist(err) {
+				log.Fatalf("error create folder %q: %s\n", folderName, err.Error())
+			}
 		}
 
 		// Move files into folder
