@@ -13,7 +13,7 @@ $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 1000.txt
 ```
 ```bash
-$ gsplitter -count 200
+$ gsplitter count -i 200
 2023/02/14 18:24:57 Done!
 ```
 ```bash
@@ -35,7 +35,7 @@ $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 1000
 ```
 ```bash
-$ gsplitter -by_ext
+$ gsplitter ext
 2023/02/14 18:24:57 Done!
 ```
 ```bash
