@@ -44,7 +44,7 @@ func SplitByExt(files []string) {
 	}
 }
 
-func SplitByCount(files []string, count int) {
+func SplitByCount(files []string, count, offset int) {
 	// Split files into arrays
 	var split [][]string
 	for i := 0; i < len(files); i += count {
@@ -53,12 +53,15 @@ func SplitByCount(files []string, count int) {
 
 	// Format for folder name
 	countOfFolders := len(split)
+	if offset > 0 {
+		countOfFolders += offset - 1
+	}
 	printFmt := fmt.Sprintf("%%0%dd", len(strconv.Itoa(countOfFolders)))
 
 	// Create folders and move files
 	for i, list := range split {
 		// Create folder
-		folderName := fmt.Sprintf(printFmt, i)
+		folderName := fmt.Sprintf(printFmt, i+offset)
 		err := os.Mkdir(folderName, 0755)
 		if err != nil {
 			log.Fatalf("error create folder %q: %s\n", folderName, err.Error())
