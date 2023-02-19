@@ -73,3 +73,32 @@ func SplitByCount(files []string, count int) {
 		}
 	}
 }
+
+func SplitByDate(files []os.FileInfo) {
+	folders := make(map[string][]string)
+
+	// Split files by date
+	for _, file := range files {
+		date := file.ModTime().Format("2006-01-02")
+		folders[date] = append(folders[date], file.Name())
+	}
+
+	// Create folders and move files
+	for folderName, list := range folders {
+		// Create folder
+		err := os.Mkdir(folderName, 0755)
+		if err != nil {
+			if !os.IsExist(err) {
+				log.Fatalf("error create folder %q: %s\n", folderName, err.Error())
+			}
+		}
+
+		// Move files into folder
+		for _, file := range list {
+			err = os.Rename(file, path.Join(folderName, file))
+			if err != nil {
+				log.Fatalf("error move file %q into folder %s: %s\n", file, folderName, err.Error())
+			}
+		}
+	}
+}
