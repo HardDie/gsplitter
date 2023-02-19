@@ -24,6 +24,7 @@ var countCmd = &cobra.Command{
 		}
 
 		internal.SplitByCount(files, count)
+		log.Println("Done!")
 	},
 }
 

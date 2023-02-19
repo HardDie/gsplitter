@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"log"
+
 	"github.com/spf13/cobra"
 
 	"github.com/HardDie/gsplitter/internal"
@@ -14,6 +16,7 @@ var extCmd = &cobra.Command{
 		files := internal.ReadFiles()
 
 		internal.SplitByExt(files)
+		log.Println("Done!")
 	},
 }
 
