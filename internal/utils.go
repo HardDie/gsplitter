@@ -48,6 +48,20 @@ func ReadFilesWithDates() []os.FileInfo {
 	return files
 }
 
+func IsFolderExists(path string) (bool, error) {
+	info, err := os.Stat(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return false, nil
+		}
+		return false, fmt.Errorf("os.Stat(): %w", err)
+	}
+	if !info.IsDir() {
+		return false, nil
+	}
+	return true, nil
+}
+
 func min(a, b int) int {
 	if a < b {
 		return a
