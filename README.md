@@ -45,6 +45,24 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 jpg/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
 ```
 
+### By first letter
+```bash
+$ ls -l
+-rw-r--r-- 1 user users     0 Feb 14 18:21 aa
+-rw-r--r-- 1 user users     0 Feb 14 18:21 ab
+-rw-r--r-- 1 user users     0 Feb 14 18:21 ba
+-rw-r--r-- 1 user users     0 Feb 14 18:21 Bb
+```
+```bash
+$ gsplitter letter
+2023/02/14 18:24:57 Done!
+```
+```bash
+$ ls -l
+drwxr-xr-x 2 user users 4.0K Feb 14 18:24 A/
+drwxr-xr-x 2 user users 4.0K Feb 14 18:24 B/
+```
+
 ## How to install
 ```
 go install github.com/HardDie/gsplitter@latest

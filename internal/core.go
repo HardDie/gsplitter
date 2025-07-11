@@ -105,3 +105,41 @@ func SplitByDate(files []os.FileInfo) {
 		}
 	}
 }
+
+func SplitByFirstLetter(files []string) {
+	const Unknown = "unknown"
+	folders := make(map[string][]string)
+
+	// Split files by first letter
+	for _, file := range files {
+		if file == "" {
+			folders[Unknown] = append(folders[Unknown], file)
+			continue
+		}
+		firstLetter := strings.ToUpper(string([]rune(file)[0]))
+		if firstLetter == "" {
+			folders[Unknown] = append(folders[Unknown], file)
+			continue
+		}
+		folders[firstLetter] = append(folders[firstLetter], file)
+	}
+
+	// Create folders and move files
+	for folderName, list := range folders {
+		// Create folder
+		err := os.Mkdir(folderName, 0755)
+		if err != nil {
+			if !os.IsExist(err) {
+				log.Fatalf("error create folder %q: %s\n", folderName, err.Error())
+			}
+		}
+
+		// Move files into folder
+		for _, file := range list {
+			err = os.Rename(file, path.Join(folderName, file))
+			if err != nil {
+				log.Fatalf("error move file %q into folder %s: %s\n", file, folderName, err.Error())
+			}
+		}
+	}
+}
