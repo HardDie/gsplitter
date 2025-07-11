@@ -59,6 +59,25 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
 </details>
 
 <details>
+	<summary>Split files by creation date</summary>
+
+```bash
+$ ls -l
+-rw-r--r-- 1 user users     0 Feb 14 18:21 0001
+-rw-r--r-- 1 user users     0 Feb 15 18:21 0002
+```
+```bash
+$ gsplitter date
+2023/02/14 18:24:57 Done!
+```
+```bash
+$ ls -l
+drwxr-xr-x 2 user users 4.0K Feb 14 18:24 2025-02-14/
+drwxr-xr-x 2 user users 4.0K Feb 14 18:24 2025-02-15/
+```
+</details>
+
+<details>
 	<summary>Split files by first letter</summary>
 
 ```bash
