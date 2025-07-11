@@ -7,66 +7,74 @@ go install github.com/HardDie/gsplitter@latest
 ```
 
 ## Usage
-### Split files by count of files:
-```bash
-$ ls -l
--rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
--rw-r--r-- 1 user users     0 Feb 14 18:21 0002.txt
--rw-r--r-- 1 user users     0 Feb 14 18:21 0003.txt
--rw-r--r-- 1 user users     0 Feb 14 18:21 0004.txt
-...
--rw-r--r-- 1 user users     0 Feb 14 18:21 1000.txt
-```
-```bash
-$ gsplitter count -i 200
-2023/02/14 18:24:57 Done!
-```
-```bash
-$ ls -l
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 0/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 1/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 2/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 3/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 4/
-```
-### Split files by extension:
-```bash
-$ ls -l
--rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
--rw-r--r-- 1 user users     0 Feb 14 18:21 0002.TXT
--rw-r--r-- 1 user users     0 Feb 14 18:21 0003.jpg
--rw-r--r-- 1 user users     0 Feb 14 18:21 0004.JPG
-...
--rw-r--r-- 1 user users     0 Feb 14 18:21 1000
-```
-```bash
-$ gsplitter ext
-2023/02/14 18:24:57 Done!
-```
-```bash
-$ ls -l
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 txt/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 jpg/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
-```
 
-### Split files by first letter:
-```bash
-$ ls -l
--rw-r--r-- 1 user users     0 Feb 14 18:21 aa
--rw-r--r-- 1 user users     0 Feb 14 18:21 ab
--rw-r--r-- 1 user users     0 Feb 14 18:21 ba
--rw-r--r-- 1 user users     0 Feb 14 18:21 Bb
-```
-```bash
-$ gsplitter letter
-2023/02/14 18:24:57 Done!
-```
-```bash
-$ ls -l
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 A/
-drwxr-xr-x 2 user users 4.0K Feb 14 18:24 B/
-```
+<details>
+	<summary>Split files by count of files</summary>
+	```bash
+	$ ls -l
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0002.txt
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0003.txt
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0004.txt
+	...
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 1000.txt
+	```
+	```bash
+	$ gsplitter count -i 200
+	2023/02/14 18:24:57 Done!
+	```
+	```bash
+	$ ls -l
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 0/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 1/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 2/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 3/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 4/
+	```
+</details>
+
+<details>
+	<summary>Split files by extension</summary>
+	```bash
+	$ ls -l
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0002.TXT
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0003.jpg
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 0004.JPG
+	...
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 1000
+	```
+	```bash
+	$ gsplitter ext
+	2023/02/14 18:24:57 Done!
+	```
+	```bash
+	$ ls -l
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 txt/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 jpg/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
+	```
+</details>
+
+<details>
+	<summary>Split files by first letter</summary>
+	```bash
+	$ ls -l
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 aa
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 ab
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 ba
+	-rw-r--r-- 1 user users     0 Feb 14 18:21 Bb
+	```
+	```bash
+	$ gsplitter letter
+	2023/02/14 18:24:57 Done!
+	```
+	```bash
+	$ ls -l
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 A/
+	drwxr-xr-x 2 user users 4.0K Feb 14 18:24 B/
+	```
+</details>
 
 ## Contributing
 
