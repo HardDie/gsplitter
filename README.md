@@ -1,8 +1,13 @@
 # gsplitter
-Allows you to divide the files in the current folder into many small directories, separated by the number of files in one directory or by extension.
+Allows you to divide the files in the current folder into many smaller directories. Division options: by number of files, by extension, by creation date, or by first letter.
 
-## Example
-### By count of files:
+## Installation
+```
+go install github.com/HardDie/gsplitter@latest
+```
+
+## Usage
+### Split files by count of files:
 ```bash
 $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
@@ -24,7 +29,7 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 2/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 3/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 4/
 ```
-### By extension:
+### Split files by extension:
 ```bash
 $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 0001.txt
@@ -45,7 +50,7 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 jpg/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
 ```
 
-### By first letter:
+### Split files by first letter:
 ```bash
 $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 aa
@@ -63,7 +68,7 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 A/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 B/
 ```
 
-## How to install
-```
-go install github.com/HardDie/gsplitter@latest
-```
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
