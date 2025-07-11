@@ -45,7 +45,7 @@ drwxr-xr-x 2 user users 4.0K Feb 14 18:24 jpg/
 drwxr-xr-x 2 user users 4.0K Feb 14 18:24 unknown/
 ```
 
-### By first letter
+### By first letter:
 ```bash
 $ ls -l
 -rw-r--r-- 1 user users     0 Feb 14 18:21 aa
