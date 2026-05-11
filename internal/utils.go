@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"runtime"
+	"strings"
 )
 
 func ReadFiles() []string {
@@ -18,6 +20,11 @@ func ReadFiles() []string {
 	for _, file := range dir {
 		if file.IsDir() {
 			fmt.Println("Directory skipped:", file.Name())
+			continue
+		}
+		if runtime.GOOS != "windows" &&
+			strings.HasPrefix(file.Name(), ".") {
+			fmt.Println("Hidden file skipped:", file.Name())
 			continue
 		}
 		files = append(files, file.Name())
